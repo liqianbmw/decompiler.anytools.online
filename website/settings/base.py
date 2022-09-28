@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'decom',  # 反编译
     'blog',  #
-
 ]
 
 
@@ -64,7 +63,7 @@ MIDDLEWARE = [
 
 
 ROOT_URLCONF = 'website.urls'
-INTERNAL_IPS = ['127.0.0.1', ]
+
 LOGIN_REDIRECT_URL = "home"  # Route defined in decom/urls.py
 LOGOUT_REDIRECT_URL = "home"  # Route defined in decom/urls.py
 TEMPLATE_DIR = os.path.join(CORE_DIR, "website/templates")  # ROOT dir for templates
@@ -133,12 +132,12 @@ LOCALE_PATHS = (
 
 # Static decompiler (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(CORE_DIR, '/static/')
-STATIC_URL = os.path.join(CORE_DIR, '/static/')
+# STATIC_ROOT = os.path.join(CORE_DIR, '/static/')
+# STATIC_URL = os.path.join(CORE_DIR, '/static/')
 
 # Extra places for collectstatic to find static decompiler.
 STATICFILES_DIRS = (
-    os.path.join(CORE_DIR, 'website/../static'),
+    os.path.join(CORE_DIR, 'website/static'),
 )
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

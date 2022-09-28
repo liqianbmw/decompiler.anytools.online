@@ -13,8 +13,9 @@ from django.utils.translation import ugettext_lazy as _
 import blog
 
 BASE_DIR = Path(__file__).parent
+# print(BASE_DIR)
 CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# print(CORE_DIR)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
@@ -46,7 +47,6 @@ INSTALLED_APPS = [
     'blog',  #
 ]
 
-
 TRANSLATABLE_MODEL_MODULES = ["blog.models"]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,7 +60,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
-
 
 ROOT_URLCONF = 'website.urls'
 
@@ -80,7 +79,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-
         },
     },
 ]
@@ -124,21 +122,19 @@ LANGUAGES = (
     ('zh-hans', _('Simplified Chinese')),
 )
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__name__))
-LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'locale'),
-)
+LOCALE_PATHS = (os.path.join(PROJECT_ROOT, 'locale'),)
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 
 # Static decompiler (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-# STATIC_ROOT = os.path.join(CORE_DIR, '/static/')
-# STATIC_URL = os.path.join(CORE_DIR, '/static/')
+# # STATICFILES_DIRS = [ os.path.join(CORE_DIR, "../static/"),]
+# STATICFILES_DIRS = [ "/Users/qianli/workspace/python/www/static"]
+# # STATIC_URL = '/static/'
+# STATIC_URL = '/Users/qianli/workspace/python/www/static'
+# # STATIC_ROOT = os.path.join(CORE_DIR, "static")
+# STATIC_ROOT = "/Users/qianli/workspace/python/www/static_web";
 
-# Extra places for collectstatic to find static decompiler.
-STATICFILES_DIRS = (
-    os.path.join(CORE_DIR, 'website/static'),
-)
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 # Media paths

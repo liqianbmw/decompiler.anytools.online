@@ -1,6 +1,6 @@
 from .base import *
-# DEBUG=False
-DEBUG=True
+DEBUG=False
+# DEBUG=True
 ALLOWED_HOSTS = ['*'] 
 JADX_HOME = 'sh /www/wwwroot/tempfile/jadx/bin/jadx -d '
 APKTOOL_HOME="/www/wwwroot/tempfile/apktool_2.6.1.jar";

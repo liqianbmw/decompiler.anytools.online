@@ -133,7 +133,9 @@
                                         {% for item in procyonDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style='background-image:url("static/images/file_png/file.png");' class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}' 
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -163,7 +165,9 @@
                                         {% for item in CFRDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}' 
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -193,7 +197,9 @@
                                         {% for item in JDCoreDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}' 
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -223,7 +229,9 @@
                                         {% for item in jadDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}'  
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -253,7 +261,9 @@
                                         {% for item in jadxDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}'   
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -283,7 +293,9 @@
                                         {% for item in fernflowerDownList %}
                                         <tr>
                                             <td>
-                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                                <a href='{{ item.downUrl }}' 
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
                                             </td>
                                             <td>
                                                 {{ item.comment }}
@@ -342,8 +354,8 @@
 
     {% include 'includes/footer.html' %}
     <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-light back-to-top"><i
-        class="mdi mdi-arrow-up"></i></a> {% include 'includes/scripts.html' %}
-
+        class="mdi mdi-arrow-up"></i></a> 
+    {% include 'includes/scripts.html' %} 
     <meta name="theme-color" content="#ffffff">
     <script>
     </script>

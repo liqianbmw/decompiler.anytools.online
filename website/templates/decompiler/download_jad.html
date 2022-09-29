@@ -14,13 +14,13 @@
     <!-- Main Css -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
     <link href="{% static 'css/colors/default.css' %}" rel="stylesheet" id="color-opt">
-    <link href="{% static '/css/app.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.css' %}" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon.png' %}">
-    <link rel="icon" type="{% static 'image/png' %}" sizes="32x32" href="/static/images/favicon-32x32.png' %}">
-    <link rel="icon" type="{% static 'image/png' %}" sizes="16x16" href="/static/images/favicon-16x16.png' %}">
+    <link rel="icon" type="/static/image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="/static/image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
     <link rel="mask-icon" href="{% static 'images/favicon.png' %}">
-
+    <link href="{% static 'css/filedisplay.css' %}" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -78,277 +78,275 @@
             font-weight: 600;
         }
     </style>
-
-
 </head>
 
 <body>
-    {% include 'includes/header.html' %} {#
-
-    <section class="bg-half bg-light d-table w-100" style="padding: 100px 0 35px;">#}
-        <section class="section" style="padding: 100px 0 15px;">
-            <div class="container">
-                <div class="row justify-content-center">
+    {% include 'includes/header.html' %}
+    <section class="section" style="padding: 100px 0 15px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title mb-4 pb-2">
+                        <h4 class="title mb-4">Decompile tools download</h4>
+                        <p class="text-muted mx-auto mb-0">Provide you with the download address of various decompilation tools</p>
+                    </div>
                     <div class="col-12 text-center">
-                        <div class="section-title mb-4 pb-2">
-                            <h4 class="title mb-4">Decompile tools download</h4>
-                            <p class="text-muted mx-auto mb-0">Provide you with the download address of various decompilation tools</p>
-                        </div>
-                        <div class="col-12 text-center">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="#Procyon">Procyon</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#CFR">CFR</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#JDCore">JDCore</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#jad">jad</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#Jadx">Jadx</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#fernflower">fernflower</a>
-                                </li>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#Procyon">Procyon</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#CFR">CFR</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#JDCore">JDCore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#jad">jad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#Jadx">Jadx</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#fernflower">fernflower</a>
+                            </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="tab" href="#apktools">apktools</a>
-                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#apktools">apktools</a>
+                            </li>
 
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="procyon">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="procyon">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                            {% for item in procyonDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
+                                        {% for item in procyonDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style='background-image:url("static/images/file_png/file.png");' class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="CFR">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="CFR">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                            {% for item in CFRDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="JDCore">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            {% for item in JDCoreDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
+                                        {% for item in CFRDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="jad">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="JDCore">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                            {% for item in jadDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="Jadx">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            {% for item in jadxDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
+                                        {% for item in JDCoreDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="fernflower">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="jad">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                            {% for item in fernflowerDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
-
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="apktools">
-                                    <table class="sortable">
-                                        <thead>
-                                            <tr>
-                                                <th>Version</th>
-                                                <th>Comment</th>
-                                                <th>Size
-                                                </th>
-                                                <th>Date Modified</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            {% for item in apktoolsDownList %}
-                                            <tr>
-                                                <td>
-                                                    <a href='{{ item.downUrl }}' style="background-image:url({% static 'images/file_png/file.png %});" class='name'>{{ item.version }}</a>
-                                                </td>
-                                                <td>
-                                                    {{ item.comment }}
-                                                </td>
-                                                <td>{{ item.size }}</td>
-                                                <td>{{ item.date }}</td>
-                                            </tr>
-                                            {% endfor %}
+                                        {% for item in jadDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="Jadx">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for item in jadxDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="fernflower">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for item in fernflowerDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' style="background-image:url('/static/images/file_png/file.png');" class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="apktools">
+                                <table class="sortable">
+                                    <thead>
+                                        <tr>
+                                            <th>Version</th>
+                                            <th>Comment</th>
+                                            <th>Size
+                                            </th>
+                                            <th>Date Modified</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for item in apktoolsDownList %}
+                                        <tr>
+                                            <td>
+                                                <a href='{{ item.downUrl }}' 
+                                                style="background-image:url('{% static "images/file_png/file.png"%}')"
+                                                class='name'>{{ item.version }}</a>
+                                            </td>
+                                            <td>
+                                                {{ item.comment }}
+                                            </td>
+                                            <td>{{ item.size }}</td>
+                                            <td>{{ item.date }}</td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
+
+        </div>
+    </section>
 
 
 
 
-        {% include 'includes/footer.html' %}
-        <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-light back-to-top"><i
+    {% include 'includes/footer.html' %}
+    <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-light back-to-top"><i
         class="mdi mdi-arrow-up"></i></a> {% include 'includes/scripts.html' %}
 
-        <meta name="theme-color" content="#ffffff">
-        <script>
-        </script>
+    <meta name="theme-color" content="#ffffff">
+    <script>
+    </script>
 </body>
 
 </html>

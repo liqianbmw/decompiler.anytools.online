@@ -25,7 +25,7 @@
     <!-- Generic page styles -->
     <!-- blueimp Gallery styles -->
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-    <link rel="stylesheet" href="{% static 'css/filedisplay.css' %}">
+    <link href="{% static 'css/filedisplay.css' %}" rel="stylesheet">
     <!-- CSS adjustments for browsers with JavaScript disabled -->
     <noscript>
         <link rel="stylesheet" href="{% static 'css/fileupload/jquery.fileupload-ui-noscript.css' %}">
@@ -119,14 +119,15 @@
                                 <tbody>
                                     {% for files in filesChilds %}
                                     <tr class='dir'>
-                                        {% if files.fileType == '
-                                        <System Dir>' %}
+                                        {% if files.fileType == '<System Dir>' %}
                                             <td>
-                                                <a href='/apk_decompiler_folder.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' style="background-image:url({% static 'images/file_png/{{ files.icon }}' %});" class='name'>{{ files.name }}</a></td>
-                                            {% endif %} {% if files.fileType != '
-                                            <System Dir>' %}
+                                                <a href='/apk_decompiler_folder.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' 
+                                                style="background-image:url('{% static "images/file_png/"%}{{files.icon}}')" class='name'>{{ files.name }}</a></td>
+                                            {% endif %} 
+                                            {% if files.fileType != '<System Dir>' %}
                                                 <td>
-                                                    <a href='/apk_decompile_detail.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' style="background-image:url({% static 'images/file_png/{{ files.icon }}' %});" class='name'>{{ files.name }}</a></td>
+                                                    <a href='/apk_decompile_detail.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' 
+                                                    style="background-image:url('{% static "images/file_png/"%}{{files.icon}}')" class='name'>{{ files.name }}</a></td>
                                                 {% endif %}
                                                 <td>{{ files.fileType }}</td>
                                                 <td>{{ files.size }}</td>
@@ -152,10 +153,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Message Notification</h4>
+                    <h4 class="modal-title" id="myModalLabel">Message notification</h4>
                 </div>
                 <div class="modal-body">
-                    <h2>Processing, please wait. . .</h2>
+                    <h2>Decompiling. . .</h2>
                     <span></span>
                     <span></span>
                     <span></span>

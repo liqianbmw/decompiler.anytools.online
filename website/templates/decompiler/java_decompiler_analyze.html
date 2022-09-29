@@ -15,7 +15,7 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" id="theme-opt" />
     <link href="{% static 'css/colors/default.css' %}" rel="stylesheet" id="color-opt">
     <link href="{% static 'css/app.css' %}" rel="stylesheet">
-
+    <link href="{% static 'css/filedisplay.css' %}" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon.png' %}">
     <link rel="icon" type="{% static 'image/png' %}" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
     <link rel="icon" type="{% static 'image/png' %}" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
@@ -109,15 +109,16 @@
                                 <tbody>
                                     {% for files in filesChilds %}
                                     <tr class='dir'>
-                                        {% if files.fileType == '
-                                        <System Dir>' %}
+                                        {% if files.fileType == '<System Dir>' %}
                                             <td>
-                                                <a href='/java_decompiler_folder.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' style="background-image:url({% static 'images/file_png/{{ files.icon }}' %});" class="name">{{ files.name }}</a></td>
-                                            {% endif %} {% if files.fileType != '
-                                            <System Dir>' %}
+                                                <a href='/java_decompiler_folder.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}' 
+                                                style="background-image:url('{% static "images/file_png/"%}{{files.icon}}')" class="name">{{ files.name }}</a></td>
+                                        {% endif %} 
+                                        {% if files.fileType != '<System Dir>' %}
                                                 <td>
-                                                    <a href="/java_decompile_detail.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}" style="background-image:url({% static 'images/file_png/{{ files.icon }}' %});" class="name">{{ files.name }}</a></td>
-                                                {% endif %}
+                                                    <a href="/java_decompile_detail.html?uploadFileName={{ uploadFileName }}&customerID={{ customerID }}&filePath={{ files.urlPath }}" 
+                                                    style="background-image:url('{% static "images/file_png/"%}{{files.icon}}')" class="name">{{ files.name }}</a></td>
+                                        {% endif %}
                                                 <td>{{ files.fileType }}</td>
                                                 <td>{{ files.size }}</td>
                                                 <td>{{ files.createDate }}</td>
@@ -142,10 +143,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Message Notification</h4>
+                    <h4 class="modal-title" id="myModalLabel">Message notification</h4>
                 </div>
                 <div class="modal-body">
-                    <h2>Processing, please wait. . .</h2>
+                    <h2>Decompiling. . .</h2>
                     <span></span>
                     <span></span>
                     <span></span>

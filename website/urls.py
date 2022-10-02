@@ -40,6 +40,7 @@ urlpatterns =  [
     path('pv/', TemplateView.as_view(template_name='pv.txt')),
     path('pv.txt', TemplateView.as_view(template_name="pv.txt", content_type="text/plain"), name="pv"),
     re_path('BingSiteAuth.xml',TemplateView.as_view(template_name="BingSiteAuth.xml", content_type="text/plain"), name="BingSiteAuth")
+    re_path('ads.xml',TemplateView.as_view(template_name="ads.txt", content_type="text/plain"), name="ads")
 ]
 
 if settings.DEBUG:
